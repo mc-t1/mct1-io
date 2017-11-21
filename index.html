@@ -185,7 +185,7 @@
 
 
 		<!-- Three -->
-		<section id="three" class="wrapper style3 special">
+	<!--	<section id="three" class="wrapper style3 special">
 			<div class="inner">
 				<header class="major">
 					<h2>Every child is a hero</h2>
@@ -206,7 +206,7 @@
 						<h3>Now on PC/Mac</h3>
 						<p>Currently supported on PC and Mac.
 							<a href="#contact">Contact us</a> for details of other platforms.</p>
-					</li>
+					</li> -->
 
 					<!-- <li class="icon fa-headphones">
 									<h3>Mauris Imperdiet</h3>
@@ -220,9 +220,9 @@
 									<h3>Tortor Ut</h3>
 									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
 								</li> -->
-				</ul>
+		<!--		</ul>
 			</div>
-		</section>
+		</section> -->
 
 		<!-- CTA -->
 		<section id="cta" class="wrapper style2">
@@ -241,11 +241,29 @@
 				</ul> -->
 			</div>
 			<div class="content">
-				<h4>Enter your email to receive download instructions</h4>
+				<h4>Where do we send the instructions?</h4>
 				<form method="post" action="#">
 					<div class="row uniform">
 						<div class="6u$ 12u$(xsmall)">
 							<input type="email" name="email" id="email" value="" placeholder="Email" />
+						</div>
+						<script>
+							function post() {
+								var email_address = document.getElementById("email").value;
+								var list_id = "1218e6847e";
+								axios.post('https://s87yuzk0s8.execute-api.us-east-1.amazonaws.com/dev/mailchimp/add', {
+									email_address: email_address,
+									list_id: list_id
+								})
+									.then(res => alert('You should get an email now'))
+									.catch(err => console.log(err));
+							}
+						</script>
+						<div class="6u$ 12u$(xsmall)">
+							<ul class="actions">
+								<li><input type="button" value="Play MC:T1" class="special" onclick="post();"/></li>
+								<!-- <li><input type="reset" value="Reset" /></li> -->
+							</ul>
 						</div>
 					</div>
 				</form>
@@ -293,6 +311,7 @@
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
 
 	<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
 	<script type="text/javascript">
