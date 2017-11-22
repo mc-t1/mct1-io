@@ -227,10 +227,10 @@
 		<section id="cta" class="wrapper style2">
 			<div class="content">
 				<div class="inner">
-					<header>
+					<!-- <header>
 						<h2>Play MC:T1 Now!</h2>
 						<p>MC:T1 is in beta.</p>
-					</header>
+					</header> -->
 					<!-- <ul class="actions vertical">
 					<li>
 						<a href="#" class="button fit special">Get it!</a>
@@ -240,35 +240,38 @@
 					</li>
 				</ul> -->
 
-
-					<h4>Where do we send the instructions?</h4>
-					<form method="post" action="#">
-						<div class="row uniform">
-							<div class="6u$ 12u$(xsmall)">
-								<input type="email" name="email" id="email" value="" placeholder="Email" />
-							</div>
-							<script>
-								function post() {
-									var email_address = document.getElementById("email").value;
-									var list_id = "1218e6847e";
-									axios.post('https://s87yuzk0s8.execute-api.us-east-1.amazonaws.com/dev/mailchimp/add', {
-											email_address: email_address,
-											list_id: list_id
-										})
-										.then(res => alert('You should get an email now'))
-										.catch(err => console.log(err));
-								}
-							</script>
-							<div class="6u$ 12u$(xsmall)">
-								<ul class="actions">
-									<li>
-										<input type="button" value="Play MC:T1" class="special" onclick="post();" />
-									</li>
-									<!-- <li><input type="reset" value="Reset" /></li> -->
-								</ul>
-							</div>
-						</div>
-					</form>
+					<div>
+						<h2>Play MC:T1 Now!</h2>
+						<p>MC:T1 is in beta.</p>
+						<h4>Where do we send the instructions?</h4>
+						<form method="post" action="#">
+							<!-- <div class="row uniform"> -->
+								<div class="">
+									<input type="email" name="email" id="email" value="" placeholder="Email" />
+								</div>
+								<script>
+									function post() {
+										var email_address = document.getElementById("email").value;
+										var list_id = "1218e6847e";
+										axios.post('https://s87yuzk0s8.execute-api.us-east-1.amazonaws.com/dev/mailchimp/add', {
+												email_address: email_address,
+												list_id: list_id
+											})
+											.then(res => alert('You should get an email now'))
+											.catch(err => console.log(err));
+									}
+								</script>
+								<div class="">
+									<ul class="actions">
+										<li>
+											<input type="button" value="Play MC:T1" class="special" onclick="post();" />
+										</li>
+										<!-- <li><input type="reset" value="Reset" /></li> -->
+									</ul>
+								</div>
+							<!-- </div> -->
+						</form>
+					</div>
 				</div>
 			</div>
 		</section>
