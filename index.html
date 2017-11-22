@@ -132,8 +132,7 @@
 					<h2>Featured at the Lyfebulb-Novo Nordisk Innovation Summit</a>
 					</h2>
 					<p>MC:T1 was one of twelve technologies disrupting the future of diabetes management that featured in the 2017
-						<a href="http://lyfebulb.com/innovation-award/novo-nordisk-2017/"
-						    target="new">Lyfebulb-NovoNordisk Innovation Summit</a> in Copenhagen.</p>
+						<a href="http://lyfebulb.com/innovation-award/novo-nordisk-2017/" target="new">Lyfebulb-NovoNordisk Innovation Summit</a> in Copenhagen.</p>
 				</div>
 			</section>
 
@@ -185,7 +184,7 @@
 
 
 		<!-- Three -->
-	<!--	<section id="three" class="wrapper style3 special">
+		<!--	<section id="three" class="wrapper style3 special">
 			<div class="inner">
 				<header class="major">
 					<h2>Every child is a hero</h2>
@@ -208,7 +207,7 @@
 							<a href="#contact">Contact us</a> for details of other platforms.</p>
 					</li> -->
 
-					<!-- <li class="icon fa-headphones">
+		<!-- <li class="icon fa-headphones">
 									<h3>Mauris Imperdiet</h3>
 									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
 								</li>
@@ -239,34 +238,37 @@
 						<a href="#" class="button fit">Learn More</a>
 					</li>
 				</ul> -->
-			</div>
-			<div class="content">
-				<h4>Where do we send the instructions?</h4>
-				<form method="post" action="#">
-					<div class="row uniform">
-						<div class="6u$ 12u$(xsmall)">
-							<input type="email" name="email" id="email" value="" placeholder="Email" />
+
+				<div class="content">
+					<h4>Where do we send the instructions?</h4>
+					<form method="post" action="#">
+						<div class="row uniform">
+							<div class="6u$ 12u$(xsmall)">
+								<input type="email" name="email" id="email" value="" placeholder="Email" />
+							</div>
+							<script>
+								function post() {
+									var email_address = document.getElementById("email").value;
+									var list_id = "1218e6847e";
+									axios.post('https://s87yuzk0s8.execute-api.us-east-1.amazonaws.com/dev/mailchimp/add', {
+											email_address: email_address,
+											list_id: list_id
+										})
+										.then(res => alert('You should get an email now'))
+										.catch(err => console.log(err));
+								}
+							</script>
+							<div class="6u$ 12u$(xsmall)">
+								<ul class="actions">
+									<li>
+										<input type="button" value="Play MC:T1" class="special" onclick="post();" />
+									</li>
+									<!-- <li><input type="reset" value="Reset" /></li> -->
+								</ul>
+							</div>
 						</div>
-						<script>
-							function post() {
-								var email_address = document.getElementById("email").value;
-								var list_id = "1218e6847e";
-								axios.post('https://s87yuzk0s8.execute-api.us-east-1.amazonaws.com/dev/mailchimp/add', {
-									email_address: email_address,
-									list_id: list_id
-								})
-									.then(res => alert('You should get an email now'))
-									.catch(err => console.log(err));
-							}
-						</script>
-						<div class="6u$ 12u$(xsmall)">
-							<ul class="actions">
-								<li><input type="button" value="Play MC:T1" class="special" onclick="post();"/></li>
-								<!-- <li><input type="reset" value="Reset" /></li> -->
-							</ul>
-						</div>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
 		</section>
 
