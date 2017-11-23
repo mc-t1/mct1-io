@@ -366,10 +366,18 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 	<!-- Mispanel Events -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			// on every page load.
-
+			function guid() {
+				function s4() {
+					return Math.floor((1 + Math.random()) * 0x10000)
+					.toString(16)
+					.substring(1);
+				}
+				return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+			}
+			
+			// localStorage.removeItem('MCT1_SESSION_ID')
 			if (!localStorage.getItem('MCT1_SESSION_ID')) {
-				var sessionid = 123;
+				var sessionid = guid();
 				localStorage.setItem('MCT1_SESSION_ID', sessionid);
 				mixpanel.track("MCT1IO_HIT", {
 					"sessionid": sessionid,
