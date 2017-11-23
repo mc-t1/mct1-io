@@ -264,18 +264,19 @@
 									function post() {
 										var email_address = document.getElementById("email").value;
 										var list_id = "1218e6847e";
-										ga('send', {
-											hitType: 'event',
-											eventCategory: 'mail',
-											eventAction: 'signup',
-											eventLabel: 'MCT1'
-										});
+
 										axios.post('https://s87yuzk0s8.execute-api.us-east-1.amazonaws.com/dev/mailchimp/add', {
 												email_address: email_address,
 												list_id: list_id
 											})
 											.then(res => alert('You should get an email now'))
 											.catch(err => console.log(err));
+										ga('send', {
+											hitType: 'event',
+											eventCategory: 'mail',
+											eventAction: 'signup',
+											eventLabel: 'MCT1'
+										});
 									}
 								</script>
 								<div class="">
