@@ -82,7 +82,7 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 					<a href="http://magikcraft.io">Magikcraft.io</a>.</p>
 				<ul class="actions">
 					<li>
-						<a href="#cta" class="button special">Play Now!</a>
+						<a href="#cta" class="button special jump-to-cta">Play Now!</a>
 					</li>
 				</ul>
 			</div>
@@ -374,18 +374,30 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 				mixpanel.track("MCT1IO_HIT", {
 					"sessionid": sessionid,
 				});
+				// alert('MCT1IO_HIT');
 			}
+
+			$('#banner a.jump-to-cta').click(function() {
+				mixpanel.track("MCT1IO_JUMP_TO_CTA", {
+					"sessionid": sessionid,
+				});
+				// alert('MCT1IO_JUMP_TO_CTA');
+			});
 
 			$('#cta input[type="email"]').focus(function() {
 				mixpanel.track("MCT1IO_CTA_EMAIL_FOCUS", {
 					"sessionid": sessionid,
 				});
+				// alert('MCT1IO_CTA_EMAIL_FOCUS');
 			});
 
 			$('#cta input[type="button"]').click(function() {
+				var email = $('#cta input[type="email"]').val();
 				mixpanel.track("MCT1IO_CTA_SUBMIT", {
 					"sessionid": sessionid,
+					"email": email,
 				});
+				// alert('MCT1IO_CTA_SUBMIT: ' + email);
 			});
 
 		});
