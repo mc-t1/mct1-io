@@ -7,6 +7,17 @@
 <html>
 
 <head>
+	<!-- Google Analytics -->
+	<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-92224105-1', 'auto');
+			ga('send', 'pageview');
+			</script>
+			<!-- End Google Analytics -->
 	<title>MC:T1 - Minecraft for Type 1 Diabetes</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -253,6 +264,12 @@
 									function post() {
 										var email_address = document.getElementById("email").value;
 										var list_id = "1218e6847e";
+										ga('send', {
+											hitType: 'event',
+											eventCategory: 'mail',
+											eventAction: 'signup',
+											eventLabel: 'MCT1'
+										});
 										axios.post('https://s87yuzk0s8.execute-api.us-east-1.amazonaws.com/dev/mailchimp/add', {
 												email_address: email_address,
 												list_id: list_id
