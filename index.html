@@ -363,9 +363,15 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 		gtag('config', 'UA-92224105-1');
 	</script>
 
-	<!-- Mispanel Events -->
+	<!-- Mixpanel Events -->
 	<script type="text/javascript">
 		$(document).ready(function() {
+			// console.log('window.location.protocol', window.location.protocol);
+			if (window.location.protocol == 'file:') {
+				// is local! Abort!;
+				return;
+			}
+
 			function guid() {
 				function s4() {
 					return Math.floor((1 + Math.random()) * 0x10000)
@@ -382,21 +388,21 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 				mixpanel.track("MCT1IO_HIT", {
 					"sessionid": sessionid,
 				});
-				// alert('MCT1IO_HIT');
+				// console.log('MCT1IO_HIT');
 			}
 
 			$('#banner a.jump-to-cta').click(function() {
 				mixpanel.track("MCT1IO_JUMP_TO_CTA", {
 					"sessionid": sessionid,
 				});
-				// alert('MCT1IO_JUMP_TO_CTA');
+				// console.log('MCT1IO_JUMP_TO_CTA');
 			});
 
 			$('#cta input[type="email"]').focus(function() {
 				mixpanel.track("MCT1IO_CTA_EMAIL_FOCUS", {
 					"sessionid": sessionid,
 				});
-				// alert('MCT1IO_CTA_EMAIL_FOCUS');
+				// console.log('MCT1IO_CTA_EMAIL_FOCUS');
 			});
 
 			$('#cta input[type="button"]').click(function() {
@@ -405,7 +411,7 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 					"sessionid": sessionid,
 					"email": email,
 				});
-				// alert('MCT1IO_CTA_SUBMIT: ' + email);
+				// console.log('MCT1IO_CTA_SUBMIT: ' + email);
 			});
 
 		});
