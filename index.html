@@ -275,7 +275,7 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 												email_address: email_address,
 												list_id: list_id
 											})
-											.then(res => alert('You should receive an email in a couple of minutes at ' + email_address))
+											.then(res => window.location.replace("/thankyou.html?email=" + email_address))
 											.catch(err => console.log(err));
 										ga('send', {
 											hitType: 'event',
