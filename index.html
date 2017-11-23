@@ -30,7 +30,7 @@
 0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
 for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
 mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
-	
+
 </head>
 
 <body class="landing">
@@ -275,7 +275,7 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 												email_address: email_address,
 												list_id: list_id
 											})
-											.then(res => alert('You should get an email now'))
+											.then(res => alert('You should receive an email in a couple of minutes at ' + email_address))
 											.catch(err => console.log(err));
 										ga('send', {
 											hitType: 'event',
@@ -367,7 +367,7 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 	<script type="text/javascript">
 		$(document).ready(function() {
 			// on every page load.
-			
+
 			if (!localStorage.getItem('MCT1_SESSION_ID')) {
 				var sessionid = 123;
 				localStorage.setItem('MCT1_SESSION_ID', sessionid);
@@ -387,7 +387,7 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 					"sessionid": sessionid,
 				});
 			});
-			
+
 		});
 	</script>
 </body>
