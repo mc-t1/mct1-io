@@ -288,13 +288,26 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 								<div class="">
 									<ul class="actions">
 										<li>
-											<input type="button" value="Play MC:T1 &raquo;" class="special" onclick="post();" />
+											<input type="button" value="Play MC:T1 now &raquo;" class="special" onclick="post();" />
 										</li>
 										<!-- <li><input type="reset" value="Reset" /></li> -->
 									</ul>
 								</div>
 							<!-- </div> -->
 						</form>
+						<hr>
+						<div>
+							<h2>Live Online Guided Tours</h2>
+							<p>We run online events where we walk through the game with you and other players.</p>
+							<h4>Upcoming Events</h4>
+							<ul data-bind="foreach: events">
+								<li>
+									Name at position <span data-bind="text: $index"> </span>:
+									<span data-bind="text: name"> </span>
+									<a href="#" data-bind="click: url">Visit on Eventbrite</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -380,7 +393,7 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 				}
 				return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 			}
-			
+
 			// localStorage.removeItem('MCT1_SESSION_ID')
 			if (!localStorage.getItem('MCT1_SESSION_ID')) {
 				var sessionid = guid();
@@ -415,6 +428,26 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 			});
 
 		});
+	</script>
+
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script> -->
+	<script>
+		var events   // Initially an empty array
+		console.log(require)
+		require(['https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'], function(ko) {
+			events = ko.observableArray();
+			var eventsModels = {
+				events: events
+			}
+			ko.applyBindings(eventsModel);
+			console.log('Knockout live!')
+		});
+
+		axios.get('https://oatysemfi0.execute-api.us-east-1.amazonaws.com/dev/events')
+			.then(function(response) {
+				console.log(response)
+				response.data.events.forEach(event => events.push(event))
+			})
 	</script>
 </body>
 
