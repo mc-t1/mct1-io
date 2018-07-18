@@ -31,6 +31,8 @@
 for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
 mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 
+
+
 </head>
 
 <body class="landing">
@@ -288,13 +290,22 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 								<div class="">
 									<ul class="actions">
 										<li>
-											<input type="button" value="Play MC:T1 &raquo;" class="special" onclick="post();" />
+											<input type="button" value="Play MC:T1 now &raquo;" class="special" onclick="post();" />
 										</li>
 										<!-- <li><input type="reset" value="Reset" /></li> -->
 									</ul>
 								</div>
 							<!-- </div> -->
 						</form>
+						<hr>
+						<div id="events">
+							<h2>Live Online Guided Tours</h2>
+							<p>We run online events where we walk through the game with you and other players.</p>
+							<h2 class="color-gold">Upcoming Events</h2>
+							<div id="eventbrite">
+								<h1>Loading...</h1>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -341,7 +352,20 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
+	<script src="assets/js/handlebars.js"></script>
+	<script src="assets/js/eventbrite.js"></script>
+
+	<script id="eventbrite-template" type="text/x-handlebars-template">
+		<ul>
+		{{#each events}}
+			<li class="event">
+				<h4>{{name}}</h4>
+				<p>{{date}}</p>
+				<p><a class="color-gold" href={{url}}>Book Tickets Now &raquo;</a></p>
+			</li>
+		{{/each}}
+		</ul>
+	</script>
 
 	<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
 	<script type="text/javascript">
@@ -380,7 +404,7 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 				}
 				return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 			}
-			
+
 			// localStorage.removeItem('MCT1_SESSION_ID')
 			if (!localStorage.getItem('MCT1_SESSION_ID')) {
 				var sessionid = guid();
