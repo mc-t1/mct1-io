@@ -3860,3 +3860,24 @@
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+
+
+	.color-gold {
+		color: #ffb729;
+	}
+
+	#events h2 {
+		margin-bottom: 30px;
+	}
+
+	#events .event {
+		list-style: none;
+	}
+
+	#events .event h3 {
+		text-transform: inherit;
+	}
+
+	#events .event p:first-of-type {
+		margin-bottom: 5px;
+	}
