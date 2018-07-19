@@ -22,8 +22,6 @@
                 return event;
             });
 
-            console.log('events', events);
-
             var template = window.Handlebars.compile($('#eventbrite-template').html());
             var html = template({events: events});
             $('#eventbrite').html(html);

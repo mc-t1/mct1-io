@@ -187,116 +187,37 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 				</div>
 			</section>
 
-			<!-- <section class="spotlight">
-				<div class="image">
-					<img src="images/pic03.jpg" alt="" />
-				</div>
-				<div class="content">
-					<h2>Featured at the
-						<a href="http://lyfebulb.com/innovation-award/novo-nordisk-2017/" target="new">Lyfebulb-Novo Nordisk Innovation Summit, 2017</a>
-					</h2>
-					<p>MC:T1 was one of twelve technologies disrupting the future of diabetes management that featured in the summit in Copenhagen.</p>
-				</div>
-			</section> -->
-
 		</section>
-
-
-		<!-- Three -->
-		<!--	<section id="three" class="wrapper style3 special">
-			<div class="inner">
-				<header class="major">
-					<h2>Every child is a hero</h2>
-					<p>The hero's journey story of MC:T1
-						<br /> creates an empowering context around the Type 1 Diabetes condition.</p>
-				</header>
-				<ul class="features">
-					<li class="icon fa-heart">
-						<h3>Made in Australia</h3>
-						<p>Made with ❤️ by
-							<a href="https://www.magikcraft.io">Magikcraft</a> in Brisbane, Australia.</p>
-					</li>
-					<li class="icon fa-globe">
-						<h3>Available world-wide</h3>
-						<p>Support for mmol/l and mg/dl blood glucose measures.</p>
-					</li>
-					<li class="icon fa-laptop">
-						<h3>Now on PC/Mac</h3>
-						<p>Currently supported on PC and Mac.
-							<a href="#contact">Contact us</a> for details of other platforms.</p>
-					</li> -->
-
-		<!-- <li class="icon fa-headphones">
-									<h3>Mauris Imperdiet</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-heart-o">
-									<h3>Aenean Primis</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-flag-o">
-									<h3>Tortor Ut</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li> -->
-		<!--		</ul>
-			</div>
-		</section> -->
 
 		<!-- CTA -->
 		<section id="cta" class="wrapper style2">
 			<div class="content">
 				<div class="inner">
-					<!-- <header>
-						<h2>Play MC:T1 Now!</h2>
-						<p>MC:T1 is in beta.</p>
-					</header> -->
-					<!-- <ul class="actions vertical">
-					<li>
-						<a href="#" class="button fit special">Get it!</a>
-					</li>
-					<li>
-						<a href="#" class="button fit">Learn More</a>
-					</li>
-				</ul> -->
 
 					<div>
 						<h2>Play MC:T1 Now!</h2>
 						<p>MC:T1 is in beta.</p>
-						<h4>Where do we send the instructions?</h4>
-						<form method="post" action="#">
+						<form method="post" action="#" id="signup-box">
 							<!-- <div class="row uniform"> -->
-								<div class="">
+								<h4>Where do we send the instructions?</h4>
+								<div>
 									<input type="email" name="email" id="email" value="" placeholder="Email" />
+									<p id="validation-message" style="display: none;">Please enter a valid email address.</p>
 								</div>
-								<script>
-									function post() {
-										var email_address = document.getElementById("email").value;
-										var list_id = "1218e6847e";
-
-										axios.post('https://s87yuzk0s8.execute-api.us-east-1.amazonaws.com/dev/mailchimp/add', {
-												email_address: email_address,
-												list_id: list_id
-											})
-											.then(res => window.location.replace("/thankyou.html?email=" + email_address))
-											.catch(err => console.log(err));
-										ga('send', {
-											hitType: 'event',
-											eventCategory: 'mail',
-											eventAction: 'signup',
-											eventLabel: 'MCT1'
-										});
-									}
-								</script>
 								<div class="">
 									<ul class="actions">
 										<li>
-											<input type="button" value="Play MC:T1 now &raquo;" class="special" onclick="post();" />
+											<input id="signup-button" type="button" value="Play MC:T1 now ... &raquo;" class="special" />
 										</li>
-										<!-- <li><input type="reset" value="Reset" /></li> -->
 									</ul>
 								</div>
-							<!-- </div> -->
 						</form>
+						<div id="thankyou-message" style="display: none;">
+							<p class="color-gold">We sent an email to <strong id="email-ty"></strong></p>
+							<p class="color-gold">Check your inbox for instructions</p>
+							<!-- <p><a href="#">Share the ❤️ and email to a friend.</a></p> -->
+							<p class="color-gold">Check our online tour schedule below and book a date that suits you!</p>
+						</div>
 						<hr>
 						<div id="events">
 							<h2>Live Online Guided Tours</h2>
@@ -350,11 +271,12 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 	<script src="assets/js/jquery.scrolly.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/handlebars.js"></script>
 	<script src="assets/js/eventbrite.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
+	<script src="assets/js/signup.js"></script>
 
 	<script id="eventbrite-template" type="text/x-handlebars-template">
 		<ul>
@@ -368,16 +290,6 @@ mixpanel.init("bd27ddbb56e9feb71f7a0c8c12cbea6c");</script><!-- end Mixpanel -->
 		</ul>
 	</script>
 
-	<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
-	<script type="text/javascript">
-		require(["mojo/signup-forms/Loader"], function (L) {
-			L.start({
-				"baseUrl": "mc.us14.list-manage.com",
-				"uuid": "a1034697d76de1660e45c6302",
-				"lid": "1218e6847e"
-			})
-		})
-	</script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-92224105-1"></script>
 	<script>
